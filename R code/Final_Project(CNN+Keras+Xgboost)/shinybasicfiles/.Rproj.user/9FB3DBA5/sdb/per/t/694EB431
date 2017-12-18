@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\n\n# Define UI for miles per gallon application\nshinyUI(pageWithSidebar(\n  \n  # Application title\n  headerPanel(\"Imagenet Training Visulaization\"),\n  \n  # Sidebar with controls to select the variable to plot against mpg\n  # and to specify whether outliers should be included\n  sidebarPanel(\n    selectInput(\"variable\", \"Variable:\",\n                list(\"Best-Fit Model\" = \"cyl\"))\n  ),\n  \n  # Show the caption and plot of the requested variable against mpg\n  mainPanel(\n    h3(textOutput(\"caption\")),\n    \n   \n    \n    plotOutput(\"semeionplot\")\n  )\n))",
+    "created" : 1513128886593.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3637628753",
+    "id" : "694EB431",
+    "lastKnownWriteTime" : 1513134090,
+    "last_content_update" : 1513134090313,
+    "path" : "~/Advance Data Science/Assignments_SDas/ADS_FINAL/shinybasicfiles/ui.r",
+    "project_path" : "ui.r",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

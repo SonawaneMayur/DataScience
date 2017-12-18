@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\nlibrary(datasets)\n\n\n\n# Define server logic requirments\nshinyServer(function(input, output) {\n  \n  \n  # Compute the forumla text in a reactive expression\n  \n  # Generate a plot of the requested variable against mpg and only \n  # include outliers if requested\n  output$semeionplot<- renderPlot(plot(history))\n})",
+    "created" : 1513128883845.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2823081635",
+    "id" : "B9E40D95",
+    "lastKnownWriteTime" : 1513134090,
+    "last_content_update" : 1513134090491,
+    "path" : "~/Advance Data Science/Assignments_SDas/ADS_FINAL/shinybasicfiles/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

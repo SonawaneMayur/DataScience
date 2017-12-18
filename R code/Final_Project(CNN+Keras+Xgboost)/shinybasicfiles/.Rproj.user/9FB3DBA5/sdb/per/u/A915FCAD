@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "install.packages('rsconnect')\n\n\nrsconnect::setAccountInfo(name='mayurads',\n                          token='529E8EC6233EFD24687A82879F6DB0F0',\n                          secret='hQOWWsT0ZMXcJZaVa9xRwyJLrpAVQfl3yMz6cn9j')\n\n\nlibrary(rsconnect)\nrsconnect::deployApp('C:/Users/Mayur/Documents/Advance Data Science/Assignments_SDas/ADS_FINAL/shinybasicfiles/R Shiny.Rproj')\n",
+    "created" : 1513208523810.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1738587496",
+    "id" : "A915FCAD",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1513208923640,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
