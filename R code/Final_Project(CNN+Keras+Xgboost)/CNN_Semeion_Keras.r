@@ -10,6 +10,9 @@ dataVal<-mydat[,257:266]
 
 
 
+ad <- read.table("C://Users//Mayur//Documents//Advance Data Science//Assignments_SDas//ADS_FINAL//Data_Semeion//semeion.data")
+head(ad,4)
+
 semeion[,which(is.na(semeion))]
 
 # Converting flatten data to Numeric numbers
@@ -239,9 +242,6 @@ run_time <- end_time - start_time
 print("--------------------------------------------------------------------------------------")
 paste("Total run time for Keras model", run_time, " seconds")
 
-library('forecast')
-
-
 predicted <- data.frame(predicted_Y_Test)
 actual <- data.frame(Y_Test)
 error <- predicted - actual
@@ -393,11 +393,28 @@ plot(history$metrics$acc, main="Model Accuracy", xlab = "epoch", ylab="accuracy"
 lines(history$metrics$val_acc, col="green")
 legend("bottomright", c("train","test"), col=c("blue", "green"), lty=c(1,1))
 
+# reshape the input dependent dataset 2D to 3D
+dim(X_Train) <- c(nrow(X_Train), 256,1)
+#dim(Y_Train) <- c(nrow(Y_Train), 1, 1)
+
+dim(X_Test) <- c(nrow(X_Test), 256, 1)
+#dim(Y_Test) <- c(nrow(Y_Test), 1, 1)
+
+dim(X_Train)
+dim(Y_Train)
+
 #calculating time to measure the model run time using KERAS
 start_time <- Sys.time()
 model <- keras_model_sequential() 
 model %>% 
-  layer_dense(units = 1024, activation = 'relu', input_shape =  dim(X_Train)[2]) %>% 
+  layer_conv_1d(filter=256,kernel_size=c(5), padding="same", input_shape = c(256,1)) %>% 
+  layer_activation("relu") %>%  
+  layer_conv_1d(filter=32, kernel_size=c(3)) %>%
+  layer_activation("relu") %>%
+  layer_max_pooling_1d(pool_size=c(3)) %>%
+  #flatten the input  
+  layer_flatten() %>% 
+  layer_dense(units = 1024, activation = 'relu') %>% 
   layer_dropout(rate = 0.1) %>% 
   layer_dense(units = 512, activation = 'relu') %>%
   layer_dropout(rate = 0.1) %>%
@@ -405,7 +422,7 @@ model %>%
   layer_dropout(rate = 0.1) %>%
   layer_dense(units = 128, activation = 'relu') %>%
   layer_dropout(rate = 0.1) %>%
-  layer_dense(units = 10, activation = 'softmax')
+  layer_dense(units = 10, activation = 'sigmoid')
 summary(model)
 model %>% compile(
   loss = "sparse_categorical_crossentropy" ,      #"categorical_crossentropy"
