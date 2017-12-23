@@ -431,7 +431,7 @@ model %>% compile(
 )
 history <- model %>% fit(
   X_Train, Y_Train,
-  epochs = 23, batch_size = 128, 
+  epochs = 10, batch_size = 128, 
   validation_split = 0.02,
  verbose = 2,
     shuffle="True"
